@@ -1,0 +1,42 @@
+﻿<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Titulo
+            </th>
+            <th>
+               Autor
+            </th>
+            <th>
+                Capitulos
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Livros)
+        {
+            <tr>
+                <td>
+                   @item.Titulo
+                </td>
+                <td>
+                    @item.Autor
+                </td>
+                <td>
+                    @item.Capitulos
+                </td>
+                <td>
+                    <a asp-controller="Livros" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Livros/Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Livros/Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
